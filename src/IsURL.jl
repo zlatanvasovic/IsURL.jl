@@ -21,6 +21,8 @@ julia> isurl("/foo/bar")
 false
 ```
 """
-isurl(str) = !occursin(windowsregex, str) && occursin(urlregex, str)
+function isurl(str::AbstractString)::Bool
+    return !occursin(windowsregex, str) && occursin(urlregex, str)
+end
 
 end # module
