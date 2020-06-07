@@ -1,5 +1,7 @@
 module IsURL
 
+export isurl
+
 # Source: https://github.com/sindresorhus/is-absolute-url (MIT license)
 windowsregex = r"^[a-zA-Z]:[\\]"
 urlregex = r"^[a-zA-Z][a-zA-Z\d+\-.]*:"
@@ -20,7 +22,5 @@ false
 ```
 """
 isurl(str) = !occursin(windowsregex, str) && occursin(urlregex, str)
-
-export isurl
 
 end # module
