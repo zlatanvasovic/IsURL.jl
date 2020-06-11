@@ -1,6 +1,6 @@
 module IsURL
 
-export isurl, isrelativeurl, iswindowsurl
+export isurl, isrelativeurl
 
 # Source: https://github.com/sindresorhus/is-absolute-url (MIT license)
 windowsregex = r"^[a-zA-Z]:[\\]"
@@ -22,26 +22,23 @@ false
 ```
 """
 function isurl(str::AbstractString)
-    return !iswindowsurl(str) && occursin(urlregex, str)
+    return !occursin(windowsregex, str) && occursin(urlregex, str)
 end
 
 """
     isrelativeurl(str)
 
 Checks if the given string is a relative URL.
-Every URL that isn't absolute is relative.
+
+julia> isrelativeurl("../path/to/directory")
+true
+julia> isrelativeurl("./__file__")
+true
+julia> isrelativeurl("foo:bar")
+false
 """
 function isrelativeurl(str::AbstractString)
     return !isurl(str)
-end
-
-"""
-    iswindowsurl(str)
-
-Checks if the given string is a Windows path.
-"""
-function iswindowsurl(str::AbstractString)
-    return occursin(windowsregex, str)
 end
 
 end # module

@@ -12,9 +12,16 @@ using IsURL
     @test isurl("//julialang.org") == false
     @test isurl("/foo/bar") == false
     @test isurl("foo/bar") == false
-    @test isurl("foo") == false
-    @test isurl("c:\\") == false
+    @test isurl("C:\\") == false
     @test isurl("c:\\Folder\\file") == false
-    @test isurl("C:\\Folder\\file") == false
     @test isurl("ht,tp://julialang.org") == false
+
+end
+
+@testset "isrelativeurl" begin
+    @test isrelativeurl("../path/to/directory") == true
+    @test isrelativeurl("./__file__") == true
+
+    @test isrelativeurl("foo:bar") == false
+    @test isrelativeurl("file://julialang.org") == false
 end
