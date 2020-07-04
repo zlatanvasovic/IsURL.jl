@@ -1,7 +1,7 @@
 name = "IsURL"
 uuid = "ceb4388c-583f-448d-bb30-00b11e8c5682"
 authors = ["Zlatan Vasović <zlatanvasovic@gmail.com> and contributors"]
-version = "0.1.0"
+version = "0.2.0"
 
 [compat]
 julia = "1"
