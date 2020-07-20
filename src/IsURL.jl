@@ -30,6 +30,7 @@ end
 
 Checks if the given string is a relative URL.
 
+# Examples
 julia> isrelativeurl("../path/to/directory")
 true
 julia> isrelativeurl("./__file__")
