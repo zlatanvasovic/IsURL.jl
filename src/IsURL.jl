@@ -31,12 +31,14 @@ end
 Checks if the given string is a relative URL.
 
 # Examples
+```julia-repl
 julia> isrelativeurl("../path/to/directory")
 true
 julia> isrelativeurl("./__file__")
 true
 julia> isrelativeurl("foo:bar")
 false
+```
 """
 function isrelativeurl(str::AbstractString)
     return !isurl(str)
