@@ -14,13 +14,23 @@ Checks if the given string is an absolute URL.
 ## Examples
 
 ```julia
-using IsURL
+julia> using IsURL
 
-isurl("https://julialang.org") == true
-isurl("mailto:someone@example.com") == true
-isurl("/foo/bar") == false
+julia> isurl("https://julialang.org")
+true
 
-isrelativeurl("../path/to/directory") == true
-isrelativeurl("./__file__") == true
-isrelativeurl("foo:bar") == false
+julia> isurl("mailto:someone@example.com")
+true
+
+julia> isurl("/foo/bar")
+false
+
+julia> isrelativeurl("../path/to/directory")
+true
+
+julia> isrelativeurl("./__file__")
+true
+
+julia> isrelativeurl("foo:bar")
+false
 ```

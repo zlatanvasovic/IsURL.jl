@@ -15,7 +15,6 @@ using IsURL
     @test isurl("C:\\") == false
     @test isurl("c:\\Folder\\file") == false
     @test isurl("ht,tp://julialang.org") == false
-
 end
 
 @testset "isrelativeurl" begin
